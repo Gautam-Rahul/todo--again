@@ -1,0 +1,124 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0%;
+    padding:0%;
+    box-sizing: border-box;
+    font-family:"Poppins", serif ;
+}
+
+body{
+    background-color: aliceblue;
+
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    
+}
+
+.input-container{
+    background-color: beige;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    padding: 20px;
+    
+}
+.input-container input{
+    border: none;
+    outline: none;
+    padding: 12px;
+    margin-block: 12px;
+    border-radius: 7px;
+    font-size: 1rem;
+
+}
+
+.input-container input[type="text"]{
+    width:70%;
+    text-transform:capitalize;
+
+}
+.input-container input[type="button"]{
+    background-color: #3da33d;
+    color: white;
+    font-weight: bold;
+    margin: 7px;
+    cursor: pointer;
+    padding: 12px 24px;
+
+    
+}
+.input-container input[type="button"]:hover{
+    background-color: #5fa75f;
+
+}
+
+ul{
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+li{
+    list-style: none;
+    width: 100%;
+    border: 0.125px solid rgb(142, 119, 119);
+    margin: 2px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #fff;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+ul li p {
+    flex-grow: 1;
+    padding: 2px;
+    
+
+}
+
+.btn{
+    margin:2px;
+    background-color: #3da33d;
+    border-radius: 5px;
+    padding: 4px;
+    color: white;
+    border: none;
+    width: 70px;
+    cursor: pointer;
+}
+.btn :hover{
+    background-color: #5fa75f;
+
+
+}
+
+.deletBtn{
+    background-color: rgb(235, 50, 50);
+}
+
+.deletBtn:hover{
+    background-color: hwb(0 7% 49%);
+
+
+}
+
+.editBtn:hover{
+    background-color: #245224;
+
+
+}

@@ -7,7 +7,7 @@ let editTodoo = null;
 const addTodo = () => {
   const inputText = inputBox.value.trim();
   if (inputText.length <= 0) {
-    alert("You must write something in your Todo ");
+    alert("You must write something in your Todo");
     return false;
   }
 
@@ -16,22 +16,19 @@ const addTodo = () => {
     addButton.value = "Add";
     inputBox.value = "";
   } else {
-    //creating paragraph
-
+    // Creating a list item
     const li = document.createElement("li");
     const p = document.createElement("p");
     p.innerHTML = inputText;
     li.appendChild(p);
 
-    //creating Edit Button
-
+    // Creating Edit Button
     const editBtn = document.createElement("button");
     editBtn.innerText = "Edit";
     editBtn.classList.add("btn", "editBtn");
     li.appendChild(editBtn);
 
-    //creating Delete Button
-
+    // Creating Delete Button
     const deletBtn = document.createElement("button");
     deletBtn.innerText = "Remove";
     deletBtn.classList.add("btn", "deletBtn");
@@ -39,12 +36,18 @@ const addTodo = () => {
 
     todoList.appendChild(li);
     inputBox.value = "";
+    saveLocalTodos(inputText);
   }
 };
 
 const updateTodo = (e) => {
   if (e.target.innerHTML === "Remove") {
     todoList.removeChild(e.target.parentElement);
+
+    const todos = getLocalTodos();
+    const index = Array.from(todoList.children).indexOf(e.target.parentElement);
+    todos.splice(index, 1);
+    localStorage.setItem("todos", JSON.stringify(todos));
   }
 
   if (e.target.innerHTML === "Edit") {
@@ -53,6 +56,16 @@ const updateTodo = (e) => {
     addButton.value = "Edit";
     editTodoo = e;
   }
+};
+
+const saveLocalTodos = (todo) => {
+  let todos = getLocalTodos();
+  todos.push(todo);
+  localStorage.setItem("todos", JSON.stringify(todos));
+};
+
+const getLocalTodos = () => {
+  return JSON.parse(localStorage.getItem("todos")) || [];
 };
 
 addButton.addEventListener("click", addTodo);
